@@ -1,5 +1,9 @@
 # Betsson test task
 
+## Foreword
+
+If you see a lot of redundancy in the code with the classes for all the paragraphs and headings that's because I was trying to do everything the TailwindCSS way. I might not have used best practise so please, treat this as an experiment :)
+
 ## Validating the concept
 
 In my experience I think TailwindCSS could be a good option performance wise if built in production mode that purges every class that is not needed. On the other hand, without good configuration there are a couple of issues with it, for example when you want to write custom css. My solution was that I made a tailwind.scss file, that imports the base, components and utilities from the Tailwind library and added it as an entry point in my webpack.config.js file. This way, I only have to restart npm run watch, if I want to write in the tailwind.config.js file, but I can write my custom css without having huge load times.
