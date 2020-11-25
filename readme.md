@@ -10,7 +10,7 @@ If you see a lot of redundancy in the code with the classes for all the paragrap
 - (optional) sudo chown $USER:www-data betsson-racebets
 - cd betsson-racebets
 - npm install
-- (If it throws an error about node-ass then) npm i --unsafe-perm node-sass
+- (If it throws an error about node-sass then) npm i --unsafe-perm node-sass
 - npm run build
 
 
