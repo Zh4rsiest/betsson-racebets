@@ -4,4 +4,44 @@
 body {
   margin: 0;
   padding: 0;
+
+  nav {
+    ul li a {
+      span {
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          left: 0;
+          bottom: 0;
+          display: block;
+          border-bottom: 0.1rem dashed $textPrimary;
+        }
+      }
+
+      &.active span:after {
+        border-style: solid;
+      }
+    }
+  }
+
+  #loginButton {
+    min-width: 9rem;
+    padding: 0.5rem;
+    font-size: 0.625rem;
+    box-shadow: 0 0.1rem 0 0 $primaryDark;
+    -webkit-box-shadow: 0 0.05rem 0 0 $primaryDark;
+    -moz-box-shadow: 0 0.05rem 0 0 $primaryDark;
+    -o-box-shadow: 0 0.05rem 0 0 $primaryDark;
+  }
+}
+
+html.dark {
+  nav ul li a {
+    span:after {
+      border-color: $darkTextPrimary;
+    }
+  }
 }

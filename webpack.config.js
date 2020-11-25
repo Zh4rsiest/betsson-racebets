@@ -4,8 +4,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 const { HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = {
-  // mode: 'development',
-  entry: ['./resources/js/main.js', './resources/css/main.scss'],
+  entry: ['./resources/js/main.js', './resources/css/main.scss', './resources/css/tailwind.scss'],
   output: {
     filename: 'js/app.js',
     path: path.resolve(__dirname, './public'),
@@ -15,10 +14,12 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         options: {
-          presets: ['@babel/preset-env']
+          presets: ['@babel/preset-env'],
+          compact: false,
+          generatorOpts: { compact: false }
         },
-        // exclude: /node_modules/
       },
       {
         test: /\.vue$/,
@@ -53,24 +54,3 @@ module.exports = {
     new VueLoaderPlugin(),
   ]
 }
-
-// if (process.env.NODE_ENV === 'production') {
-//   module.exports.devtool = '#source-map'
-//   // http://vue-loader.vuejs.org/en/workflow/production.html
-//   module.exports.plugins = (module.exports.plugins || []).concat([
-//     new webpack.DefinePlugin({
-//       'process.env': {
-//         NODE_ENV: '"production"'
-//       }
-//     }),
-//     new webpack.optimize.UglifyJsPlugin({
-//       sourceMap: true,
-//       compress: {
-//         warnings: false
-//       }
-//     }),
-//     new webpack.LoaderOptionsPlugin({
-//       minimize: true
-//     })
-//   ])
-// }
